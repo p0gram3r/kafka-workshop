@@ -85,8 +85,8 @@ more data because it cannot know when it has processed "all" the input data.
       return builder.build();
    }
    ```
-3. Start a console consumer to read from the target topic. Change the type of the value deserializer
-   to `org.apache.kafka.common.serialization.LongDeserializer` to see the actual numbers.
+3. Start a console consumer to read from the target topic. Use 
+   `--property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer` to see the actual numbers.
 4. Start the applications, alongside the ArticleFilterApp. Start another console consumer to read the output of
    the ArticleFilterApp.
 5. Use a console producer to send some text messages to the `streams-text-input` topic.
