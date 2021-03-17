@@ -107,7 +107,7 @@ or Avro), we have to provide a custom
 Serdes are simple factories for creating serializers and deserializers for a specific format.
 
 **Tasks**
-1. Create a `SeniorUsersFilterApp` that sends all "users" (see level 4.3) of age 60+ to a topic "senior-users". Use
+1. Create a `SeniorUsersFilterApp` that sends all `users` (see level 4.3) of age 60+ to a new topic `senior-users`. Use
    the `SpecificAvroSerde` to parse the entities from the source topic.
 
 **Learning Objectives**
@@ -115,7 +115,7 @@ Serdes are simple factories for creating serializers and deserializers for a spe
 - working with message schemas and schema registries within a Streams application
 
 
-# Level 5.4 - Joining data of two topics
+## Level 5.4 - Joining data of two topics
 Suppose we have a set of movies that have been released, and a stream of ratings about how entertaining they are. In
 this exercise, we'll write a program that joins each rating with content about the movie.
 
