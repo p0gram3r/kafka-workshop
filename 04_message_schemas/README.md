@@ -17,6 +17,15 @@ up and running. The registry provides us with the possibility to upload and
 manage schemas for message keys and values. This will help us to keep the data
 of a topic consistent.
 
+We use nginx as proxy with landing page [http://kafka-wks.org](http://kafka-wks.org)
+
+we add following entries in /etc/hosts
+```
+#kafka-wks
+127.0.0.1 kafka-wks kafka-wks.org www.kafka-wks.org
+```
+
+
 For convenience, we will set up a minimalistic environment, consisting of one ZooKeeper instance, one Kafka broker
 and a Schema Registry. The environment can be started via Docker:
 ```
