@@ -85,8 +85,8 @@ more data because it cannot know when it has processed "all" the input data.
       return builder.build();
    }
    ```
-3. Start a console consumer to read from the target topic. Change the type of the value deserializer
-   to `org.apache.kafka.common.serialization.LongDeserializer` to see the actual numbers.
+3. Start a console consumer to read from the target topic. Use 
+   `--property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer` to see the actual numbers.
 4. Start the applications, alongside the ArticleFilterApp. Start another console consumer to read the output of
    the ArticleFilterApp.
 5. Use a console producer to send some text messages to the `streams-text-input` topic.
@@ -120,36 +120,51 @@ Suppose we have a set of movies that have been released, and a stream of ratings
 this exercise, we'll write a program that joins each rating with content about the movie.
 
 1. Add the `io.confluent:kafka-streams-avro-serde` dependency to the Maven POM.
-2. This application will make use of three streams:
+2. This application will make use of three topics:
    - one called `movies` that holds movie reference data:
     ```
-    "fields": [
+   {
+      "namespace": "kafkaworkshop",
+      "type": "record",
+      "name": "Movie",
+      "fields": [
         {"name": "id", "type": "long"},
         {"name": "title", "type": "string"},
         {"name": "release_year", "type": "int"}
-    ]
+      ]
+    }
     ```
    - one called `ratings` that holds a stream of inbound movie ratings
     ```
-    "fields": [
+    {
+      "namespace": "kafkaworkshop",
+      "type": "record",
+      "name": "MovieRating",
+      "fields": [
         {"name": "id", "type": "long"},
         {"name": "rating", "type": "double"}
-    ]
+      ]
+    }
     ```
    - one called `rated-movies` that holds the result of the join between ratings and movies
     ```
-    "fields": [
+    {
+      "namespace": "kafkaworkshop",
+      "type": "record",
+      "name": "RatedMovie",
+      "fields": [
         {"name": "id", "type": "long"},
         {"name": "title", "type": "string"},
         {"name": "release_year", "type": "int"},
         {"name": "rating", "type": "double"}
-    ]
+      ]
+    }
     ```
 
    Create the respective topics and Avro schema files and generate the code of the POJOs.
 3. Build the topology for this app.
    ```
-   public static Topology buildTopology() {
+   public static Topology buildTopology(String movieTopic, String ratingTopic, String ratedMoviesTopic) {
        final StreamsBuilder builder = new StreamsBuilder();
        final MovieRatingJoiner joiner = new MovieRatingJoiner();
 
