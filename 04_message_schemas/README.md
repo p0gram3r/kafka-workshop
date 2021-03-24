@@ -9,32 +9,31 @@ containing simple strings. Up next, we will deal with objects using JSON and a
 popular binary format.
 
 ## Prerequisites
-Some of the following exercises will make use of some Confluent specific components,
-(e.g. `KafkaAvroSerializer`) to spare us from writing
+The following exercises make use of some Confluent specific components
+(e.g. `KafkaAvroSerializer`) that spare us from writing
 our own serializer and deserializer. For this to work, we need a
 [Confluent Schema Registry](https://www.confluent.io/confluent-schema-registry/)
 up and running. The registry provides us with the possibility to upload and
 manage schemas for message keys and values. This will help us to keep the data
 of a topic consistent.
 
-We use nginx as proxy with landing page [http://kafka-wks.org](http://kafka-wks.org)
+For convenience, a docker compose script is provided that spins up an environment with the following components
+- a single ZooKeeper instance
+- one Kafka broker - `localhost:9092`
+- a Confluent schema registry - [http://localhost:8081](http://localhost:8081/)
+- a UI for Confluent's schema registry - [http://localhost:8000](http://localhost:8000/)
+- a KafkaHQ instance - [http://localhost:25000](http://localhost:25000/)
+  - not yet upgraded to AKHQ. Pull requests are welcome ^^
 
-we add following entries in /etc/hosts
-```
-#kafka-wks
-127.0.0.1 kafka-wks kafka-wks.org www.kafka-wks.org
-```
-
-
-For convenience, we will set up a minimalistic environment, consisting of one ZooKeeper instance, one Kafka broker
-and a Schema Registry. The environment can be started via Docker:
-```
-docker-compose up
-```
-
-When finished, press `Ctrl-C` to shut everything down. Note, that this setup does not any persistent
+Use the following commands to manage the environment. Note, that this setup does not use any persistent
 volumes in this setup, so all data will be lost!
+```
+# start as daemon
+docker-compose up -d
 
+# shut everything down
+docker-compose down
+```
 
 ## Level 4.1 - Dealing with Objects
 Instead of sending primitive integers or strings, producers can also deal with

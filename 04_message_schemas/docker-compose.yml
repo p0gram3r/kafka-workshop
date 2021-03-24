@@ -40,36 +40,20 @@ services:
     environment:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'broker:29092'
-#    volumes:
-#      - ./schema:/opt/app/schema/
-
-
-  nginx:
-    image: nginx
-    restart: "no"
-    #restart: always
-    #restart: on-failure
-    #restart: unless-stopped
-    ports:
-      - "80:80"
-    depends_on:
-      - kafkahq
-    volumes:
-      - ./:/src
-    command: ./src/nginx/run_nginx.sh
-    environment:
-      - DOMAIN
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
 
   schema-registry-ui:
     image: landoop/schema-registry-ui:latest
+    hostname: schema-registry-ui
+    container_name: schema-registry-ui
     ports:
-      - 25001:8001
+      - 8000:8000
     environment:
-      SCHEMAREGISTRY_URL: http://localhost:8081
+      SCHEMAREGISTRY_URL: http://schema-registry:8081
       ALLOW_GLOBAL: 'true'
       ALLOW_TRANSITIVE: 'true'
       ALLOW_DELETION: 'true'
-      PORT: 8001
+      PORT: 8000
       PROXY: 'true'
     depends_on:
       - schema-registry
@@ -77,6 +61,7 @@ services:
   kafkahq:
     image: tchiotludo/kafkahq
     hostname: kafkahq
+    container_name: kafkahq
     environment:
       KAFKAHQ_CONFIGURATION: |
         kafkahq:
