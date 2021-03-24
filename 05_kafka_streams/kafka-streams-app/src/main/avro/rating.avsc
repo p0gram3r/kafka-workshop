@@ -1,0 +1,9 @@
+{
+  "namespace": "kafkaworkshop",
+  "type": "record",
+  "name": "Rating",
+  "fields": [
+    {"name": "id", "type": "long"},
+    {"name": "rating", "type": "double"}
+  ]
+}
