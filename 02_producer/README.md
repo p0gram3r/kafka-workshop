@@ -19,9 +19,9 @@ Write a small application that send some messages to a Kafka topic.
 
 - The app can be run as a standalone executable and can be configured via env variables. The following parameters can
   be passed:
-  - bootstrap servers
-  - name of the topic to send to
-  - number of messages to send
+    - bootstrap servers
+    - name of the topic to send to
+    - number of messages to send
 - Create a Kubernetes `Job` using that application.
 
 ## Level 2.2 - Throughput vs. durability
