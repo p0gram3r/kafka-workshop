@@ -2,7 +2,7 @@
 
 ## Level 2.1 - Introduction to Producers
 
-### Learning Objectives**
+### Learning Objectives
 
 - basic understanding of how to write a producer application
 - understanding the message order semantics within a topic
