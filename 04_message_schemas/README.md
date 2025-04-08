@@ -23,9 +23,9 @@ For convenience, a docker compose script is provided that spins up an environmen
 
 - a single ZooKeeper instance
 - one Kafka broker - `localhost:9092`
-- a Confluent schema registry - [http://localhost:8081]
-- a UI for Confluent's schema registry - [http://localhost:8000]
-- an AKHQ instance - [http://localhost:9000]
+- a Confluent schema registry - (http://localhost:8081)
+- a UI for Confluent's schema registry - (http://localhost:8000)
+- an AKHQ instance - (http://localhost:9000)
 
 Use the following commands to manage the environment. Note, that this setup does not use any persistent volumes, so all data will be lost!
 
