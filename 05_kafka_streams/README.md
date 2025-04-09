@@ -28,7 +28,7 @@ Let's create a very basic Kafka Streams application named `ArticleFilterApp` tha
 1. Create two topics `streams-text-input` and `streams-lines-with-article`.
 2. Add the Kafka Streams dependency to the Maven POM.
 3. Time to write the actual application! First, create a method to build a
-   [topology](https://kafka.apache.org/25/javadoc/index.html?org/apache/kafka/streams/Topology.html).
+   [topology](https://kafka.apache.org/40/javadoc/index.html?org/apache/kafka/streams/Topology.html).
     ```java
     private static Topology buildTopology(String inputTopic, String outputTopic) {
        StreamsBuilder builder = new StreamsBuilder();
@@ -99,7 +99,7 @@ more data because it cannot know when it has processed "all" the input data.
 
 To be able to write a Kafka Streams application for a topic containing a custom text or
 binary format (e.g. JSON or Avro), we have to provide a custom
-[Serde](https://kafka.apache.org/25/javadoc/index.html?org/apache/kafka/common/serialization/Serde.html).
+[Serde](https://kafka.apache.org/40/javadoc/index.html?org/apache/kafka/common/serialization/Serde.html).
 Serdes are simple factories for creating serializers and deserializers for a specific format.
 
 ### Learning Objectives
