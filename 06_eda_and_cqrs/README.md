@@ -122,7 +122,7 @@ following flow:
 ### Level 6.4 - More Exercises
 
 At the moment we only have a bare minimum required for a full eCommerce shop.
-Big variety of other use cases that a system could and should support,
+There is a big variety of other use cases that such a system could and should support,
 including but not limited to:
 
 - an InvoiceService for creating invoices for all successful orders
