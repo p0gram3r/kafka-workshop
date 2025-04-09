@@ -212,7 +212,7 @@ use them to send and consume users
 
 - using binary format without external schema registries
 
-## Tasks
+### Tasks
 
 1. Create a separate project called `avro-without-registry`.
 2. Add the avro schema file and all required components to generate the User class.
