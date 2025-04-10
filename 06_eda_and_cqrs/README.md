@@ -38,7 +38,9 @@ ability to place orders, pay, and receive goods. Let's start by
 implementing the basic services for these activities!
 
 ### Learning Objectives
-- Implementing a basic Event Choreography
+- Reasing about an architecture driven by events, what data to share and how to implement
+different flows
+- Implementing a basic event choreography
 
 ### Tasks
 1. OrderService - Place orders and inform downstream services
@@ -92,11 +94,7 @@ to gain better visibility into all individual steps of the order process.
 - Handle failure compensation and workflow coordination using a central Orchestrator Service
 
 ### Tasks
-1. create three new Kafka topics:
-   - `saga-commands` – commands like ReserveStock, ProcessPayment, etc.
-   - `saga-events` – saga outcomes and compensations
-   - `order-status` – order completed/failed notification
-2. Create a new application OrderSagaOrchestrator that acts as central orchestrator for the
+1. Create a new application OrderSagaOrchestrator that acts as central orchestrator for the
 following flow:
    ```bash
    [Orders] → Send OrderPlacedEvent
@@ -115,8 +113,8 @@ following flow:
       ↓
    [Orchestrator] → Emit OrderCompletedEvent
    ```
-3. Identify all situations that require compensating actions (e.g. ReleaseStockCommand)
-4. Update all other services to only react to the saga commands.
+2. Identify all situations that require compensating actions (e.g. ReleaseStockCommand)
+3. Update all other services to only react to the saga commands.
 
 
 ### Level 6.4 - More Exercises
