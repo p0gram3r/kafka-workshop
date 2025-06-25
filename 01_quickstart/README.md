@@ -5,9 +5,9 @@
 1. Download Kafka
 
    ```bash
-   wget https://dlcdn.apache.org/kafka/3.9.0/kafka_2.13-3.9.0.tgz
-   tar -xzf kafka_2.13-3.9.0.tgz
-   cd kafka_2.13-3.9.0
+   wget https://dlcdn.apache.org/kafka/3.9.1/kafka_2.13-3.9.1.tgz
+   tar -xzf kafka_2.13-3.9.1.tgz
+   cd kafka_2.13-3.9.1
    ```
 
 2. Start ZooKeeper

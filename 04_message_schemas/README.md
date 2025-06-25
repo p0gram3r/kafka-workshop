@@ -92,7 +92,7 @@ mechanisms for ensuring data consistency. Let's examine this problem.
 
 ### Tasks
 
-1. Create an application that it can consume `SimpleUser` records.
+1. Create an application that is able to consume `SimpleUser` records.
 2. Let the producer send a continuous flow of messages. Use the new consumer app to parse these messages.
 3. Use another producer (e.g.: `kafka-console-producer`) to send a few messages that do not comply with the known user schema, e.g. by introducing additional fields or sending entirely different content. Examine the behaviour of the consumer application.
 4. Describe different ways to deal with this situation.
