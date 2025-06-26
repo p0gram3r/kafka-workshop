@@ -1,4 +1,4 @@
-# 6 - Event-drive Architecture and CQRS
+# 6 - Event-driven Architecture and CQRS
 
 Welcome to the final exercise in this workshop! To get a better understanding of
 how to effectively use the core concepts we have learned so far, we will implement
