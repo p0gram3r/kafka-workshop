@@ -16,7 +16,7 @@ The following exercises make use of some Confluent specific components
 our own serializer and deserializer. For this to work, we need a
 [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html)
 up and running. The registry provides us with the possibility to upload and
-manage schemas for message keys and values. This will help keeping the data
+manage schemas for message keys and values. This helps keeping the data
 of a topic consistent.
 
 For convenience, a docker compose script is provided that spins up an environment with the following components
