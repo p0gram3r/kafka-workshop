@@ -1,7 +1,7 @@
 services:
 
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.7.1
+    image: confluentinc/cp-zookeeper:7.8.3
     restart: always
     user: root
     container_name: kws-zookeeper
@@ -10,7 +10,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
 
   broker:
-    image: confluentinc/cp-kafka:7.7.1
+    image: confluentinc/cp-kafka:7.8.3
     hostname: broker
     user: root
     container_name: kws-broker
@@ -37,7 +37,7 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
 
   schema-registry:
-    image: confluentinc/cp-schema-registry:7.7.1
+    image: confluentinc/cp-schema-registry:7.8.3
     restart: always
     container_name: kws-schema-registry
     hostname: schema-registry
@@ -49,22 +49,6 @@ services:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'broker:29092'
       SCHEMA_REGISTRY_LISTENERS: http://schema-registry:8081
-
-  schema-registry-ui:
-    image: landoop/schema-registry-ui:latest
-    hostname: schema-registry-ui
-    container_name: kws-schema-registry-ui
-    ports:
-      - 8000:8000
-    environment:
-      SCHEMAREGISTRY_URL: http://schema-registry:8081
-      ALLOW_GLOBAL: 'true'
-      ALLOW_TRANSITIVE: 'true'
-      ALLOW_DELETION: 'true'
-      PORT: 8000
-      PROXY: 'true'
-    depends_on:
-      - schema-registry
 
   akhq:
     image: tchiotludo/akhq:0.25.1
